@@ -54,6 +54,7 @@ dependencies {
     }
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib:1.3.41")
 }
 
 tasks.withType<Test> {

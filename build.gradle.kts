@@ -2,11 +2,11 @@ plugins {
     java
     application
     id("org.javamodularity.moduleplugin") version "1.8.15"
-    id("org.openjfx.javafxplugin") version "0.0.13"
+    id("org.openjfx.javafxplugin") version "0.1.0"
     id("org.beryx.jlink") version "2.25.0"
 }
 
-group = "com.AlexeyPopov1984"
+group = "com.alexeypopov1984"
 version = "1.0-SNAPSHOT"
 
 repositories {
@@ -26,8 +26,8 @@ tasks.withType<JavaCompile> {
 }
 
 application {
-    mainModule.set("com.alexeypopov1984.hl_methods_lab6")
-    mainClass.set("com.alexeypopov1984.hl_methods_lab6.HelloApplication")
+    mainModule.set("com.alexeypopov1984")
+    mainClass.set("com.alexeypopov1984.Launcher")
 }
 
 javafx {

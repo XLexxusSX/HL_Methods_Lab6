@@ -1,6 +1,7 @@
 package com.alexeypopov1984.geometry2d;
 
 import javafx.scene.paint.Color;
+import javafx.scene.canvas.GraphicsContext;
 
 public class Circle implements Figure {
     private final double radius;
@@ -14,12 +15,15 @@ public class Circle implements Figure {
         this.color = color;
     }
 
-    @Override
+    public void draw(GraphicsContext gc) {
+        gc.setFill(color);
+        gc.fillOval(x - radius, y - radius, 2 * radius, 2 * radius);
+    }
+
     public double area() {
         return Math.PI * radius * radius;
     }
 
-    @Override
     public double perimeter() {
         return 2 * Math.PI * radius;
     }
@@ -28,4 +32,5 @@ public class Circle implements Figure {
     public String toString() {
         return "Radius okruzhnosti: " + radius;
     }
+
 }

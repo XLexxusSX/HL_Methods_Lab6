@@ -2,11 +2,16 @@ package com.alexeypopov1984.geometry3d;
 
 import com.alexeypopov1984.geometry2d.Figure;
 import com.alexeypopov1984.exceptions.InvalidWidthOrLengthException;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.paint.Color;
 
 import java.util.Scanner;
 
 public class Cylinder implements Figure {
-    private double vysota, radius;
+    private double radius;
+    private double x, y;
+    private Color color;
+    private double vysota;
     private String inputVysota, inputRadius;
     private Scanner scannerTask_6 = new Scanner(System.in);
 
@@ -53,18 +58,55 @@ public class Cylinder implements Figure {
         } while (true);
     }
 
-    @Override
+
+    public double getX() {
+        return x;
+    }
+
+
+    public void setX(double x) {
+        this.x = x;
+    }
+
+
+    public double getY() {
+        return y;
+    }
+
+
+    public void setY(double y) {
+        this.y = y;
+    }
+
+    public double getRadius() {
+        return radius;
+    }
+
+
+    public void draw(GraphicsContext gc) {
+        gc.setFill(color);
+        gc.fillOval(x - radius, y - radius, 2 * radius, 2 * radius);
+    }
+
+    public Color getColor() {
+        return color;
+    }
+
+    public void setColor(Color color) {
+        this.color = color;
+    }
+
     public double area() {
         return Math.PI * radius * radius;
     }
 
-    @Override
     public double perimeter() {
         return 2 * Math.PI * radius;
     }
 
-    @Override
     public String toString() {
         return "Osnovanie tsilindra: " + toString() + "\nVysota tsilindra: " + vysota;
     }
+
+
 }

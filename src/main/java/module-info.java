@@ -10,6 +10,7 @@ module com.alexeypopov1984 {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
+    requires javafx.graphics;
 
     opens com.alexeypopov1984 to javafx.fxml;
     exports com.alexeypopov1984;

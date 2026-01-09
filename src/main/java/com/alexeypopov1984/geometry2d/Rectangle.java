@@ -3,7 +3,7 @@ package com.alexeypopov1984.geometry2d;
 import java.util.Scanner;
 import com.alexeypopov1984.exceptions.InvalidWidthOrLengthException;
 
-public class Rectangle implements Figure {
+public class Rectangle  {
     private Scanner scannerTask_6 = new Scanner(System.in);
     private double shirina;
     private double dlina;
@@ -56,23 +56,23 @@ public class Rectangle implements Figure {
             }
         } while (true);
 
-        if (dlinaBolsheShiriny) {
-            System.out.println("\nPloschad' pryamougol'nika: " + area());
-            System.out.println("Perimetr pryamougol'nika: " + perimeter());
-            System.out.println(toString());
-        }
-        else System.out.print("\nDlina dolzhna byt' bol'she shiriny. ");
+//        if (dlinaBolsheShiriny) {
+//            System.out.println("\nPloschad' pryamougol'nika: " + area());
+//            System.out.println("Perimetr pryamougol'nika: " + perimeter());
+//            System.out.println(toString());
+//        }
+//        else System.out.print("\nDlina dolzhna byt' bol'she shiriny. ");
     }
 
-    @Override
-    public double area() {
-        return shirina * dlina;
-    }
-
-    @Override
-    public double perimeter() {
-        return 2 * (shirina + dlina);
-    }
+//    @Override
+//    public double area() {
+//        return shirina * dlina;
+//    }
+//
+//    @Override
+//    public double perimeter() {
+//        return 2 * (shirina + dlina);
+//    }
 
     @Override
     public String toString() {

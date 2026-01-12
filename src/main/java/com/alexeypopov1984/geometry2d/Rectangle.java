@@ -4,8 +4,6 @@ package com.alexeypopov1984.geometry2d;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
-import com.alexeypopov1984.exceptions.InvalidWidthOrLengthException;
-
 public class Rectangle implements Figure {
     private double shirina;
     private double vysota;
@@ -23,18 +21,5 @@ public class Rectangle implements Figure {
     public void draw(GraphicsContext gc) {
         gc.setFill(color);
         gc.fillRect(x, y, shirina, vysota);
-    }
-
-    public double area() {
-        return shirina * vysota;
-    }
-
-    public double perimeter() {
-        return 2 * shirina + 2 * vysota;
-    }
-
-    @Override
-    public String toString() {
-        return "Shirina pryamougol'nika: " + shirina + "\nVysota pryamougol'nika: " + vysota;
     }
 }

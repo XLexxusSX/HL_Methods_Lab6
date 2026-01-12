@@ -4,7 +4,7 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
 public interface Figure {
-    double area();
-    double perimeter();
+    //double area();
+    //double perimeter();
     void draw(GraphicsContext gc);
 }

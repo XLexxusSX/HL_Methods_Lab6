@@ -1,5 +1,6 @@
 package com.alexeypopov1984;
 
+import com.alexeypopov1984.geometry2d.Rectangle;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -30,7 +31,7 @@ public class Window2d3dFigures extends Application {
         Button rectangleButton = new Button("Нарисовать прямоугольник");
         rectangleButton.setOnAction(e -> drawFigure("Rectangle"));
 
-        HBox buttonBox = new HBox(10, circleButton, canvas);
+        HBox buttonBox = new HBox(10, circleButton, rectangleButton, canvas);
         buttonBox.setAlignment(Pos.CENTER);
         buttonBox.setPadding(new Insets(10));
 
@@ -43,13 +44,22 @@ public class Window2d3dFigures extends Application {
     private void drawFigure(String type) {
         Figure figure = null;
         Random random = new Random();
+
         double x = random.nextDouble() * (canvas.getWidth() - 100);
         double y = random.nextDouble() * (canvas.getHeight() - 100);
+
+        Random rand = new Random();
         Color color = randomColor();
 
         if ("Circle".equals(type)) {
             double radius = 20 + random.nextDouble() * 50;
             figure = new Circle(radius, x, y, color);
+        }
+
+        if ("Rectangle".equals(type)) {
+            double width = 30 + rand.nextDouble() * 70;
+            double height = 30 + rand.nextDouble() * 70;
+            figure = new Rectangle(width, height, x, y, color);
         }
 
         figuresList.add(figure);

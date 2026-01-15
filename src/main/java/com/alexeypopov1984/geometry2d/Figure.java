@@ -7,4 +7,7 @@ public interface Figure {
     //double area();
     //double perimeter();
     void draw(GraphicsContext gc);
+    boolean contains(double mouseX, double mouseY);
+    void setColor(Color color);
 }
+

@@ -28,29 +28,41 @@ public class Window2d3dFigures extends Application {
     public void start(Stage stage) {
         int shirinaOkna = 1000;
         Button circleButton = new Button("Нарисовать круг");
+        circleButton.setMinSize(200, 40);
+        circleButton.setMaxSize(200, 40);
         circleButton.setOnAction(e -> drawFigure("Circle"));
 
         Button rectangleButton = new Button("Нарисовать прямоугольник");
+        rectangleButton.setMinSize(200, 40);
+        rectangleButton.setMaxSize(200, 40);
         rectangleButton.setOnAction(e -> drawFigure("Rectangle"));
 
+        Button clearButton = new Button("Очистить поверхность");
+        clearButton.setMinSize(200, 40);
+        clearButton.setMaxSize(200, 40);
+        clearButton.setOnAction(e -> clearCanvas());
+
         canvas.setOnMousePressed(e -> {
-                if (e.isSecondaryButtonDown()) {
-                for (Figure fig : figuresList) {
-                    //isInside(fig, e.getX(), e.getY());
+            double mouseX = e.getX();
+            double mouseY = e.getY();
+
+            for (int i = figuresList.size() - 1; i >= 0; i--) {
+                Figure fig = figuresList.get(i);
+                if (fig.contains(mouseX, mouseY)) {
+                    if (e.isSecondaryButtonDown()) {
+                        fig.setColor(randomColor());
                         redrawCanvas();
-                        break;
                     }
+                    break;
                 }
+            }
         });
 
-
-         HBox hBox = new HBox(20, circleButton, rectangleButton);
+         HBox hBox = new HBox(20, circleButton, rectangleButton, clearButton);
          hBox.setAlignment(Pos.CENTER);
 
          VBox vBox = new VBox(50, canvas, hBox);
          vBox.setAlignment(Pos.BASELINE_CENTER);
-
-
 
  //     hBox.setPadding(new Insets(10));
         vBox.setPadding(new Insets(10));
@@ -84,6 +96,11 @@ public class Window2d3dFigures extends Application {
 
         figuresList.add(figure);
         redrawCanvas();
+    }
+
+    private void clearCanvas() {
+        figuresList.clear();
+        gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
     }
 
     private void redrawCanvas() {

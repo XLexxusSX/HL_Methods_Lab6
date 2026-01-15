@@ -19,4 +19,13 @@ public class Circle implements Figure {
         gc.setFill(color);
         gc.fillOval(x - radius, y - radius, 2 * radius, 2 * radius);
     }
+
+    public boolean contains(double mouseX, double mouseY) {
+        double distance = Math.sqrt(Math.pow(mouseX - x, 2) + Math.pow(mouseY - y, 2));
+        return distance <= radius;
+    }
+
+    public void setColor(Color color) {
+        this.color = color;
+    }
 }

@@ -22,4 +22,12 @@ public class Rectangle implements Figure {
         gc.setFill(color);
         gc.fillRect(x, y, shirina, vysota);
     }
+
+    public boolean contains(double mouseX, double mouseY) {
+        return mouseX >= x && mouseX <= x + shirina && mouseY >= y && mouseY <= y + vysota;
+    }
+
+    public void setColor(Color color) {
+        this.color = color;
+    }
 }
